@@ -46,21 +46,21 @@ def wrap_json(self, obj):
     return data
 
 
-def find_provider_and_service(id):
-    providers = [n for n in settings.SERVICES if n['id'] == id]
+def find_provider_and_service(provider_id):
+    providers = [n for n in settings.SERVICES if n['id'] == provider_id]
     if len(providers) != 1:
-        raise Exception('No such provider: ' + id)
+        raise Exception('No such provider: ' + provider_id)
 
     provider = providers[0]
     return provider, settings.LOOKUP[provider['type']]
 
 
-def find_service(id):
-    id = id.lower()
-    if id in settings.LOOKUP:
-        return settings.LOOKUP[id]
+def find_service(service_id):
+    service_id = service_id.lower()
+    if service_id in settings.LOOKUP:
+        return settings.LOOKUP[service_id]
 
-    provider, service = find_provider_and_service(id)
+    provider, service = find_provider_and_service(service_id)
     return service
 
 
@@ -416,9 +416,9 @@ class CliTokenLoginHandler(webapp2.RequestHandler):
         display = 'Unknown'
         error = 'Server error, close window and try again'
         try:
-            id = self.request.POST.get('id')
+            provider_id = self.request.POST.get('id')
             fetch_token = self.request.POST.get('fetchtoken', '')
-            provider, service = find_provider_and_service(id)
+            provider, service = find_provider_and_service(provider_id)
             display = provider['display']
 
             try:
@@ -451,7 +451,7 @@ class CliTokenLoginHandler(webapp2.RequestHandler):
 
             resp = json.loads(content)
 
-            keyid, authid = create_authtoken(id, resp)
+            keyid, authid = create_authtoken(provider_id, resp)
 
             # If this was part of a polling request, signal completion
             dbmodel.update_fetch_token(fetch_token, authid)
@@ -468,7 +468,7 @@ class CliTokenLoginHandler(webapp2.RequestHandler):
             template = JINJA_ENVIRONMENT.get_template('logged-in.html')
             self.response.write(template.render(template_values))
 
-            logging.info(f"Created new authid {keyid} for service {id}")
+            logging.info(f"Created new authid {keyid} for service {provider_id}")
 
         except:
             logging.exception(f"handler error for {display}")
