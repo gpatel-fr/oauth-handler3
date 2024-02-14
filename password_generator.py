@@ -1,11 +1,13 @@
 from os import urandom
 from random import choice
 
-char_set = {'small': b'abcdefghijklmnopqrstuvwxyz',
-             'nums': b'0123456789',
-             'big': b'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-             'special': b'!-_.'
-            }
+char_set = {
+    "small": b"abcdefghijklmnopqrstuvwxyz",
+    "nums": b"0123456789",
+    "big": b"ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    "special": b"!-_.",
+}
+
 
 def generate_pass(length=21):
     """Function to generate a password"""
@@ -20,11 +22,11 @@ def generate_pass(length=21):
                 continue
             else:
                 password.append(a_char)
-    return b''.join(password).decode('utf-8')
+    return b"".join(password).decode("utf-8")
 
 
 def check_prev_char(password, current_char_set):
-    """Function to ensure that there are no consecutive 
+    """Function to ensure that there are no consecutive
     UPPERCASE/lowercase/numbers/special-characters."""
 
     index = len(password)
@@ -37,5 +39,6 @@ def check_prev_char(password, current_char_set):
         else:
             return False
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     print(generate_pass())

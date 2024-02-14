@@ -13,31 +13,31 @@ import os
 try:
     from config import TESTING
 except ImportError:
-    TESTING = os.environ.get('SERVER_SOFTWARE', '').startswith('Development')
+    TESTING = os.environ.get("SERVER_SOFTWARE", "").startswith("Development")
 
-APP_DOMAIN = 'change-me-in-config-py.appspot.com'
-APP_NAME = 'CHANGE-ME-IN-CONFIG.PY'
-SERVICE_DISPLAYNAME = APP_NAME + ' OAuth Handler'
+APP_DOMAIN = "change-me-in-config-py.appspot.com"
+APP_NAME = "CHANGE-ME-IN-CONFIG.PY"
+SERVICE_DISPLAYNAME = APP_NAME + " OAuth Handler"
 DEFAULT_TOKEN_VERSION = 1
 
-API_KEY = ''
+API_KEY = ""
 WORKER_URLS = []
 WORKER_OFFLOAD_RATIO = 0
 
-WL_CLIENT_ID = 'XXXXXXXXXXXXXXXXXXXX'
-WL_CLIENT_SECRET = 'XXXXXXXXXXXXXXXXXXXX'
-MSGRAPH_CLIENT_ID = 'XXXXXXXXXXXXXXXXXXXX'
-MSGRAPH_CLIENT_SECRET = 'XXXXXXXXXXXXXXXXXXXX'
-GD_CLIENT_ID = 'XXXXXXXXXXXXXXXXXXXX'
-GD_CLIENT_SECRET = 'XXXXXXXXXXXXXXXXXXXX'
-HC_CLIENT_ID = 'XXXXXXXXXXXXXXXXXXXX'
-HC_CLIENT_SECRET = 'XXXXXXXXXXXXXXXXXXXX'
-AMZ_CLIENT_ID = 'XXXXXXXXXXXXXXXXXXXX'
-AMZ_CLIENT_SECRET = 'XXXXXXXXXXXXXXXXXXXX'
-BOX_CLIENT_ID = 'XXXXXXXXXXXXXXXXXXXX'
-BOX_CLIENT_SECRET = 'XXXXXXXXXXXXXXXXXXXX'
-DROPBOX_CLIENT_ID = 'XXXXXXXXXXXXXXXXXXXX'
-DROPBOX_CLIENT_SECRET = 'XXXXXXXXXXXXXXXXXXXX'
+WL_CLIENT_ID = "XXXXXXXXXXXXXXXXXXXX"
+WL_CLIENT_SECRET = "XXXXXXXXXXXXXXXXXXXX"
+MSGRAPH_CLIENT_ID = "XXXXXXXXXXXXXXXXXXXX"
+MSGRAPH_CLIENT_SECRET = "XXXXXXXXXXXXXXXXXXXX"
+GD_CLIENT_ID = "XXXXXXXXXXXXXXXXXXXX"
+GD_CLIENT_SECRET = "XXXXXXXXXXXXXXXXXXXX"
+HC_CLIENT_ID = "XXXXXXXXXXXXXXXXXXXX"
+HC_CLIENT_SECRET = "XXXXXXXXXXXXXXXXXXXX"
+AMZ_CLIENT_ID = "XXXXXXXXXXXXXXXXXXXX"
+AMZ_CLIENT_SECRET = "XXXXXXXXXXXXXXXXXXXX"
+BOX_CLIENT_ID = "XXXXXXXXXXXXXXXXXXXX"
+BOX_CLIENT_SECRET = "XXXXXXXXXXXXXXXXXXXX"
+DROPBOX_CLIENT_ID = "XXXXXXXXXXXXXXXXXXXX"
+DROPBOX_CLIENT_SECRET = "XXXXXXXXXXXXXXXXXXXX"
 
 RATE_LIMIT = 0
 
@@ -128,7 +128,7 @@ try:
 except ImportError:
     pass
 
-OAUTH_CALLBACK_URI = 'https://' + APP_DOMAIN + '/logged-in'
+OAUTH_CALLBACK_URI = "https://" + APP_DOMAIN + "/logged-in"
 
 try:
     from config import OAUTH_CALLBACK_URI
@@ -136,195 +136,191 @@ except ImportError:
     pass
 
 WL_REDIRECT_URI = OAUTH_CALLBACK_URI
-WL_AUTH_URL = 'https://login.live.com/oauth20_token.srf'
-WL_LOGIN_URL = 'https://login.live.com/oauth20_authorize.srf'
+WL_AUTH_URL = "https://login.live.com/oauth20_token.srf"
+WL_LOGIN_URL = "https://login.live.com/oauth20_authorize.srf"
 
 MSGRAPH_REDIRECT_URI = OAUTH_CALLBACK_URI
-MSGRAPH_AUTH_URL = 'https://login.microsoftonline.com/common/oauth2/v2.0/token'
-MSGRAPH_LOGIN_URL = 'https://login.microsoftonline.com/common/oauth2/v2.0/authorize'
+MSGRAPH_AUTH_URL = "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+MSGRAPH_LOGIN_URL = "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
 
 GD_REDIRECT_URI = OAUTH_CALLBACK_URI
-GD_AUTH_URL = 'https://www.googleapis.com/oauth2/v3/token'
-GD_LOGIN_URL = 'https://accounts.google.com/o/oauth2/auth'
+GD_AUTH_URL = "https://www.googleapis.com/oauth2/v3/token"
+GD_LOGIN_URL = "https://accounts.google.com/o/oauth2/auth"
 
 AMZ_REDIRECT_URI = OAUTH_CALLBACK_URI
-AMZ_AUTH_URL = 'https://api.amazon.com/auth/o2/token'
-AMZ_LOGIN_URL = 'https://www.amazon.com/ap/oa'
+AMZ_AUTH_URL = "https://api.amazon.com/auth/o2/token"
+AMZ_LOGIN_URL = "https://www.amazon.com/ap/oa"
 
 BOX_REDIRECT_URI = OAUTH_CALLBACK_URI
-BOX_AUTH_URL = 'https://api.box.com/oauth2/token'
-BOX_LOGIN_URL = 'https://app.box.com/api/oauth2/authorize'
+BOX_AUTH_URL = "https://api.box.com/oauth2/token"
+BOX_LOGIN_URL = "https://app.box.com/api/oauth2/authorize"
 
 DROPBOX_REDIRECT_URI = OAUTH_CALLBACK_URI
-DROPBOX_AUTH_URL = 'https://api.dropboxapi.com/oauth2/token'
-DROPBOX_LOGIN_URL = 'https://www.dropbox.com/oauth2/authorize'
+DROPBOX_AUTH_URL = "https://api.dropboxapi.com/oauth2/token"
+DROPBOX_LOGIN_URL = "https://www.dropbox.com/oauth2/authorize"
 
-JOTTACLOUD_AUTH_URL = 'https://id.jottacloud.com/auth/realms/jottacloud/protocol/openid-connect/token'
+JOTTACLOUD_AUTH_URL = (
+    "https://id.jottacloud.com/auth/realms/jottacloud/protocol/openid-connect/token"
+)
 
 LOOKUP = {
-    'wl': {
-        'display': 'Windows Live',
-        'client-id': WL_CLIENT_ID,
-        'client-secret': WL_CLIENT_SECRET,
-        'redirect-uri': WL_REDIRECT_URI,
-        'auth-url': WL_AUTH_URL,
-        'login-url': WL_LOGIN_URL
+    "wl": {
+        "display": "Windows Live",
+        "client-id": WL_CLIENT_ID,
+        "client-secret": WL_CLIENT_SECRET,
+        "redirect-uri": WL_REDIRECT_URI,
+        "auth-url": WL_AUTH_URL,
+        "login-url": WL_LOGIN_URL,
     },
-
-    'msgraph': {
-        'display': 'Microsoft Graph',
-        'client-id': MSGRAPH_CLIENT_ID,
-        'client-secret': MSGRAPH_CLIENT_SECRET,
-        'redirect-uri': MSGRAPH_REDIRECT_URI,
-        'auth-url': MSGRAPH_AUTH_URL,
-        'login-url': MSGRAPH_LOGIN_URL
+    "msgraph": {
+        "display": "Microsoft Graph",
+        "client-id": MSGRAPH_CLIENT_ID,
+        "client-secret": MSGRAPH_CLIENT_SECRET,
+        "redirect-uri": MSGRAPH_REDIRECT_URI,
+        "auth-url": MSGRAPH_AUTH_URL,
+        "login-url": MSGRAPH_LOGIN_URL,
     },
-
-    'gd': {
-        'display': 'Google',
-        'client-id': GD_CLIENT_ID,
-        'client-secret': GD_CLIENT_SECRET,
-        'redirect-uri': GD_REDIRECT_URI,
-        'auth-url': GD_AUTH_URL,
-        'login-url': GD_LOGIN_URL
+    "gd": {
+        "display": "Google",
+        "client-id": GD_CLIENT_ID,
+        "client-secret": GD_CLIENT_SECRET,
+        "redirect-uri": GD_REDIRECT_URI,
+        "auth-url": GD_AUTH_URL,
+        "login-url": GD_LOGIN_URL,
     },
-
-    'amz': {
-        'display': 'Amazon',
-        'client-id': AMZ_CLIENT_ID,
-        'client-secret': AMZ_CLIENT_SECRET,
-        'redirect-uri': AMZ_REDIRECT_URI,
-        'auth-url': AMZ_AUTH_URL,
-        'login-url': AMZ_LOGIN_URL
+    "amz": {
+        "display": "Amazon",
+        "client-id": AMZ_CLIENT_ID,
+        "client-secret": AMZ_CLIENT_SECRET,
+        "redirect-uri": AMZ_REDIRECT_URI,
+        "auth-url": AMZ_AUTH_URL,
+        "login-url": AMZ_LOGIN_URL,
     },
-
-    'box': {
-        'display': 'Box.com',
-        'client-id': BOX_CLIENT_ID,
-        'client-secret': BOX_CLIENT_SECRET,
-        'redirect-uri': BOX_REDIRECT_URI,
-        'auth-url': BOX_AUTH_URL,
-        'login-url': BOX_LOGIN_URL
+    "box": {
+        "display": "Box.com",
+        "client-id": BOX_CLIENT_ID,
+        "client-secret": BOX_CLIENT_SECRET,
+        "redirect-uri": BOX_REDIRECT_URI,
+        "auth-url": BOX_AUTH_URL,
+        "login-url": BOX_LOGIN_URL,
     },
-
-    'dropbox': {
-        'display': 'Dropbox',
-        'client-id': DROPBOX_CLIENT_ID,
-        'client-secret': DROPBOX_CLIENT_SECRET,
-        'redirect-uri': DROPBOX_REDIRECT_URI,
-        'auth-url': DROPBOX_AUTH_URL,
-        'login-url': DROPBOX_LOGIN_URL,
+    "dropbox": {
+        "display": "Dropbox",
+        "client-id": DROPBOX_CLIENT_ID,
+        "client-secret": DROPBOX_CLIENT_SECRET,
+        "redirect-uri": DROPBOX_REDIRECT_URI,
+        "auth-url": DROPBOX_AUTH_URL,
+        "login-url": DROPBOX_LOGIN_URL,
         # Docs say state is supported, but server rejects
-        'no-state-for-token-request': True,
+        "no-state-for-token-request": True,
         # Dropbox is a little picky
-        'no-redirect_uri-for-refresh-request': True
+        "no-redirect_uri-for-refresh-request": True,
     },
-
-    'jottacloud': {
-        'display': 'Jottacloud',
-        'client-id': "jottacli",
-        'auth-url': JOTTACLOUD_AUTH_URL,
-        'cli-token': True
-    }
+    "jottacloud": {
+        "display": "Jottacloud",
+        "client-id": "jottacli",
+        "auth-url": JOTTACLOUD_AUTH_URL,
+        "cli-token": True,
+    },
 }
 
 SERVICES = [
     {
-        'display': 'Google Drive (limited)',
-        'type': 'gd',
-        'id': 'googledrive',
-        'scope': 'https://www.googleapis.com/auth/drive.file',
-        'extraurl': 'access_type=offline&approval_prompt=force',
-        'servicelink': 'https://drive.google.com',
-        'deauthlink': 'https://security.google.com/settings/security/permissions',
-        'brandimage': '/google-btn.png'
+        "display": "Google Drive (limited)",
+        "type": "gd",
+        "id": "googledrive",
+        "scope": "https://www.googleapis.com/auth/drive.file",
+        "extraurl": "access_type=offline&approval_prompt=force",
+        "servicelink": "https://drive.google.com",
+        "deauthlink": "https://security.google.com/settings/security/permissions",
+        "brandimage": "/google-btn.png",
     },
     {
-        'display': 'Google Drive (full access)',
-        'type': 'gd',
-        'id': 'googledocs',
-        'scope': 'https://www.googleapis.com/auth/drive',
-        'extraurl': 'access_type=offline&approval_prompt=force',
-        'servicelink': 'https://drive.google.com',
-        'deauthlink': 'https://security.google.com/settings/security/permissions',
-        'brandimage': '/google-btn.png'
+        "display": "Google Drive (full access)",
+        "type": "gd",
+        "id": "googledocs",
+        "scope": "https://www.googleapis.com/auth/drive",
+        "extraurl": "access_type=offline&approval_prompt=force",
+        "servicelink": "https://drive.google.com",
+        "deauthlink": "https://security.google.com/settings/security/permissions",
+        "brandimage": "/google-btn.png",
     },
     {
-        'display': 'Google Cloud Storage',
-        'type': 'gd',
-        'id': 'gcs',
-        'scope': 'https://www.googleapis.com/auth/devstorage.read_write',
-        'extraurl': 'access_type=offline&approval_prompt=force',
-        'servicelink': 'https://cloud.google.com/storage/',
-        'deauthlink': 'https://security.google.com/settings/security/permissions',
-        'brandimage': '/google-btn.png'
+        "display": "Google Cloud Storage",
+        "type": "gd",
+        "id": "gcs",
+        "scope": "https://www.googleapis.com/auth/devstorage.read_write",
+        "extraurl": "access_type=offline&approval_prompt=force",
+        "servicelink": "https://cloud.google.com/storage/",
+        "deauthlink": "https://security.google.com/settings/security/permissions",
+        "brandimage": "/google-btn.png",
     },
     {
-        'display': 'Microsoft OneDrive (Live Connect API)',
-        'type': 'wl',
-        'id': 'onedrive',
-        'scope': 'wl.offline_access wl.skydrive_update wl.skydrive',
-        'servicelink': 'https://onedrive.live.com',
-        'notes': '<p style="font-size: small">By using the OAuth login service for OneDrive you agree to the <a href="https://www.microsoft.com/en-us/servicesagreement" target="_blank">Microsoft Service Agreement</a> and <a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank">Microsoft Online Privacy Statement</a></p>'
+        "display": "Microsoft OneDrive (Live Connect API)",
+        "type": "wl",
+        "id": "onedrive",
+        "scope": "wl.offline_access wl.skydrive_update wl.skydrive",
+        "servicelink": "https://onedrive.live.com",
+        "notes": '<p style="font-size: small">By using the OAuth login service for OneDrive you agree to the <a href="https://www.microsoft.com/en-us/servicesagreement" target="_blank">Microsoft Service Agreement</a> and <a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank">Microsoft Online Privacy Statement</a></p>',
     },
     {
-        'display': 'Microsoft OneDrive (Microsoft Graph API)',
-        'type': 'msgraph',
-        'id': 'onedrivev2',
-        'scope': 'offline_access Files.ReadWrite',
-        'servicelink': 'https://onedrive.live.com'
+        "display": "Microsoft OneDrive (Microsoft Graph API)",
+        "type": "msgraph",
+        "id": "onedrivev2",
+        "scope": "offline_access Files.ReadWrite",
+        "servicelink": "https://onedrive.live.com",
     },
     {
-        'display': 'Microsoft SharePoint (Microsoft Graph API)',
-        'type': 'msgraph',
-        'id': 'sharepoint',
-        'scope': 'offline_access Files.ReadWrite.All',
-        'servicelink': 'https://products.office.com/en-us/sharepoint'
+        "display": "Microsoft SharePoint (Microsoft Graph API)",
+        "type": "msgraph",
+        "id": "sharepoint",
+        "scope": "offline_access Files.ReadWrite.All",
+        "servicelink": "https://products.office.com/en-us/sharepoint",
     },
     {
-        'display': 'Microsoft Office 365 Groups (Microsoft Graph API)',
-        'type': 'msgraph',
-        'id': 'msgroup',
-        'scope': 'offline_access Files.ReadWrite.All Group.Read.All',
-        'servicelink': 'https://support.office.com/en-us/article/Learn-about-Office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2'
+        "display": "Microsoft Office 365 Groups (Microsoft Graph API)",
+        "type": "msgraph",
+        "id": "msgroup",
+        "scope": "offline_access Files.ReadWrite.All Group.Read.All",
+        "servicelink": "https://support.office.com/en-us/article/Learn-about-Office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2",
     },
     {
-        'display': 'Amazon Cloud Drive',
-        'type': 'amz',
-        'id': 'amzcd',
-        'scope': 'clouddrive:read_other clouddrive:write',
-        'servicelink': 'https://www.amazon.com/clouddrive/home'
+        "display": "Amazon Cloud Drive",
+        "type": "amz",
+        "id": "amzcd",
+        "scope": "clouddrive:read_other clouddrive:write",
+        "servicelink": "https://www.amazon.com/clouddrive/home",
     },
     {
-        'display': 'Box.com',
-        'type': 'box',
-        'id': 'box.com',
-        'scope': 'root_readwrite',
-        'servicelink': 'https://www.box.com/pricing/personal/'
+        "display": "Box.com",
+        "type": "box",
+        "id": "box.com",
+        "scope": "root_readwrite",
+        "servicelink": "https://www.box.com/pricing/personal/",
     },
     {
-        'display': 'Box.com',
-        'type': 'box',
-        'id': 'box',
-        'scope': 'root_readwrite',
-        'servicelink': 'https://www.box.com/pricing/personal/',
-        'hidden': True
-    },    
-    {
-        'display': 'Dropbox',
-        'type': 'dropbox',
-        'id': 'dropbox',
-        'scope': 'files.content.write files.content.read files.metadata.read files.metadata.write',
-        'extraurl': 'token_access_type=offline',
-        'servicelink': 'https://dropbox.com'
+        "display": "Box.com",
+        "type": "box",
+        "id": "box",
+        "scope": "root_readwrite",
+        "servicelink": "https://www.box.com/pricing/personal/",
+        "hidden": True,
     },
     {
-        'display': 'Jottacloud',
-        'type': 'jottacloud',
-        'id': 'jottacloud',
-        'scope': 'openid offline_access',
-        'servicelink': 'https://jottacloud.com'
-    }
+        "display": "Dropbox",
+        "type": "dropbox",
+        "id": "dropbox",
+        "scope": "files.content.write files.content.read files.metadata.read files.metadata.write",
+        "extraurl": "token_access_type=offline",
+        "servicelink": "https://dropbox.com",
+    },
+    {
+        "display": "Jottacloud",
+        "type": "jottacloud",
+        "id": "jottacloud",
+        "scope": "openid offline_access",
+        "servicelink": "https://jottacloud.com",
+    },
 ]
 
 try:
