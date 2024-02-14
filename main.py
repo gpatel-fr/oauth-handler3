@@ -176,6 +176,8 @@ class IndexHandler(webapp2.RequestHandler):
             link = ''
             if 'cli-token' in service and service['cli-token']:
                 link = '/cli-token?id=' + n['id']
+                if self.request.get('token', None) is not None:
+                    link += '&token=' + self.request.get('token')
             else:
                 link = '/login?id=' + n['id']
                 if self.request.get('token', None) is not None:
@@ -399,7 +401,8 @@ class CliTokenHandler(webapp2.RequestHandler):
             'service': provider['display'],
             'appname': settings.APP_NAME,
             'longappname': settings.SERVICE_DISPLAYNAME,
-            'id': provider['id']
+            'id': provider['id'],
+            'fetchtoken': self.request.get('token', '')
         }
 
         template = JINJA_ENVIRONMENT.get_template('cli-token.html')
@@ -414,6 +417,7 @@ class CliTokenLoginHandler(webapp2.RequestHandler):
         error = 'Server error, close window and try again'
         try:
             id = self.request.POST.get('id')
+            fetch_token = self.request.POST.get('fetchtoken', '')
             provider, service = find_provider_and_service(id)
             display = provider['display']
 
@@ -449,10 +453,8 @@ class CliTokenLoginHandler(webapp2.RequestHandler):
 
             keyid, authid = create_authtoken(id, resp)
 
-            fetchtoken = dbmodel.create_fetch_token(resp)
-
             # If this was part of a polling request, signal completion
-            dbmodel.update_fetch_token(fetchtoken, authid)
+            dbmodel.update_fetch_token(fetch_token, authid)
 
             # Report results to the user
             template_values = {
@@ -460,7 +462,7 @@ class CliTokenLoginHandler(webapp2.RequestHandler):
                 'appname': settings.APP_NAME,
                 'longappname': settings.SERVICE_DISPLAYNAME,
                 'authid': authid,
-                'fetchtoken': fetchtoken
+                'fetchtoken': fetch_token
             }
 
             template = JINJA_ENVIRONMENT.get_template('logged-in.html')
